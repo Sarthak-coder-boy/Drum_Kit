@@ -1,18 +1,25 @@
-
+// travesing to all the keys which is to be pressed
 for(var i=0;i< document.querySelectorAll(".drum").length;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click",handleClick);
     
+    
+//     Make sound on clicking the images
 }
 function handleClick(){
   var alphabet = this.innerHTML;
   makesound(alphabet);
   buttonAnimation(alphabet);
 
+    
+//     Make sound on pressing the keyboard keys
 }
 document.addEventListener("keypress",function(letter){
     makesound(letter.key);
     buttonAnimation(letter.key);
 })
+
+
+// Gives the sound on a particular keys or clicks
 function makesound(char){
     switch(char){
         case "w":
@@ -47,6 +54,8 @@ function makesound(char){
                 console.log(char);
             }
 }
+
+// Adding Animation
 function buttonAnimation(currentkey){
     document.querySelector("."+currentkey).classList.add("pressed");
     setTimeout(function(){ document.querySelector("."+currentkey).classList.remove("pressed");},200)
